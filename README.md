@@ -26,6 +26,7 @@ npm install
 > 
 
 <br/>
+
 Create a `.env` file in with root directory with this inside:
 ```bash
 POCKETBASE_URL = <your-url>
