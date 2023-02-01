@@ -44,7 +44,7 @@ Import the downloaded file in pocketbase on `Settings -> Import collections` and
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install`, start a development server:
+Once you've completed the steps above, you can start a development server:
 
 ```bash
 npm run dev
