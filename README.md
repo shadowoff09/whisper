@@ -1,3 +1,5 @@
+![banner](banner.jpg)
+
 ## Setting Up
 
 To be able to run this app you NEED to this steps:
