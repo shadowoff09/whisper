@@ -3,6 +3,10 @@
 	import { enhance } from '$app/forms';
 </script>
 
+<svelte:head>
+	<title>Whisper: Login</title>
+</svelte:head>
+
 <div class="my-24 lg:my-40 grid place-items-center">
   <h1 class="text-2xl font-satoshi font-bold text-white">Welcome to <span class="text-purple-500">Whisper</span></h1>
 	<h3 class="mb-10 mt-2 text-xl font-satoshi font-bold text-white">Login with your account</h3>

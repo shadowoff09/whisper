@@ -12,6 +12,9 @@
 
 </script>
 
+<svelte:head>
+	<title>Whisper: My Link</title>
+</svelte:head>
 
 <div class="grid place-items-center font-satoshi my-52 text-5xl text-red-800">
 	<Input value="{url.replace("/my/link", `/${data.user.username}/whisper`)}" readonly label=""/>

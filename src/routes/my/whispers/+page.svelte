@@ -14,6 +14,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Whisper: My Whispers</title>
+</svelte:head>
+
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-10 gap-y-8 mx-10 my-2">
 	{#each data.records as whisper}
 		<div class="card max-w-sm bg-base-200 shadow-lg border {whisper.replied ? 'border-red-500' : 'border-green-600'}">

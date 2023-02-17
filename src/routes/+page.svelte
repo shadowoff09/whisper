@@ -12,6 +12,10 @@
 
 </script>
 
+<svelte:head>
+	<title>Whisper: Search</title>
+</svelte:head>
+
 <form on:submit|preventDefault={submitSearch}>
 	<div class="grid place-items-center mt-64 space-y-5">
 		<div class="form-control lg:w-3/5 md:w-3/4 sm:w-3/4">

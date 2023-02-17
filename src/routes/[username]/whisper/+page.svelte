@@ -4,6 +4,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>Whisper: {data.user}</title>
+</svelte:head>
+
 <div class="max-w-lg mx-auto my-48 h-full">
 	<h1 class="grid text-2xl font-satoshi font-bold place-items-center text-white mb-10">
 		Send an whisper to <span class="text-purple-500">{data.user}</span>

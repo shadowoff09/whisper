@@ -3,6 +3,10 @@
 	import { enhance } from '$app/forms';
 </script>
 
+<svelte:head>
+	<title>Whisper: Register</title>
+</svelte:head>
+
 <!-- component -->
 <!-- This is an example component -->
 <div class="my-24 lg:my-40 grid place-items-center">

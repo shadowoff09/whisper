@@ -7,6 +7,10 @@
 
 </script>
 
+<svelte:head>
+	<title>Whisper: 404</title>
+</svelte:head>
+
 <div class="grid place-items-center mx-10 space-y-1">
   <h1 class="mt-32 font-tanker text-9xl select-none">404</h1>
   {#if $page.url.searchParams.get('error') === 'UserNotFound'}
