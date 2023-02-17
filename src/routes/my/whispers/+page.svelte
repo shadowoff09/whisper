@@ -39,7 +39,7 @@
 					</form>
 				</div>
 				<h1 class="absolute mt-1 mr-37 font-bold">Whisper #{getCount()} {whisper.reply ? '(Replied)' : ''}</h1>
-				<p>{whisper.whisper}</p>
+				<p class="break-words">{whisper.whisper}</p>
 				<a href="/my/whispers/{whisper.id}" class="btn -mb-2 mt-2">View</a>
 			</div>
 		</div>
