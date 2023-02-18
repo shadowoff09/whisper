@@ -2,7 +2,7 @@
 
 ## Setting Up
 
-To be able to run this app you NEED to this steps:
+To be able to run this app you NEED to do this steps:
 
 <details><summary>Install Dependencies</summary>
 <p>
