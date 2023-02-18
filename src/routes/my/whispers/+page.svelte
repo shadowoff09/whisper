@@ -17,8 +17,18 @@
 <svelte:head>
 	<title>Whisper: My Whispers</title>
 </svelte:head>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-10 gap-y-8 mx-10 my-2">
+{#if data.records.length <= 0}
+	<div class="flex justify-center">
+		<div class="card max-w-sm bg-base-200 shadow-lg border border-green-600">
+			<div class="card-body">
+				<h1 class="font-bold">No whispers found</h1>
+				<p>It seems like no one haven't sent any whispers to you.</p>
+				<a href="/{data.user.username}/whisper" class="btn -mb-2 mt-2">Send a whisper to yourself</a>
+			</div>
+		</div>
+	</div>
+{:else}
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-10 gap-y-8 mx-10 my-2">
 	{#each data.records as whisper}
 		<div class="card max-w-sm bg-base-200 shadow-lg border {whisper.replied ? 'border-red-500' : 'border-green-600'}">
 			<div class="card-body">
@@ -50,3 +60,6 @@
 		{increment()}
 	{/each}
 </div>
+{/if}
+
+
