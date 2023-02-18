@@ -6,6 +6,7 @@
 	const date = new Date(data.whisper?.created);
 	const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 	const readableDate = date.toLocaleDateString('en-US', options);
+
 </script>
 
 <svelte:head>
@@ -20,7 +21,7 @@
 				</div>
 				<h1 class="font-bold">Whisper from Anonymous</h1>
 
-				<p>{data.whisper.whisper}</p>
+				<p class="text-xl">{data.whisper.whisper}</p>
 
 				<h1><span class="font-bold">Sent on: </span>{readableDate}</h1>
 				{#if data.whisper.replied}
@@ -34,8 +35,11 @@
 
 				<form action="?/deleteWhisper" method="POST" use:enhance>
 						<input hidden name="whisperId" value={data.whisper.id} />
-						<button href="/my/whispers/{data.whisper.id}" class="btn -mb-2 mt-2 w-full bg-red-500 text-black hover:bg-red-700">Delete</button>
+						<div class="space-y-5">
+							<button class="btn -mb-2 mt-2 w-full bg-red-500 text-black hover:bg-red-700">Delete</button>
+						</div>
 				</form>
+				<a href="/my/whispers" class="btn -mb-2 mt-2 w-full bg-blue-500 text-black hover:bg-blue-700">Back to whispers</a>
 			</div>
 			
 		</div>

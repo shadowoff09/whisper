@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 import "../app.postcss";
-import { Nav } from '$lib/components';
+import { Nav, Footer } from '$lib/components';
 
 export let data;
 </script>
@@ -10,3 +10,8 @@ export let data;
 <Nav {data}/>
 
 <slot/>
+
+
+<div class="">
+  <Footer />
+</div>

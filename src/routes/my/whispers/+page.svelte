@@ -19,7 +19,7 @@
 </svelte:head>
 {#if data.records.length <= 0}
 	<div class="flex justify-center">
-		<div class="card max-w-sm bg-base-200 shadow-lg border border-green-600">
+		<div class="card max-w-sm bg-base-200 shadow-lg border border-red-500">
 			<div class="card-body">
 				<h1 class="font-bold">No whispers found</h1>
 				<p>It seems like no one haven't sent any whispers to you.</p>

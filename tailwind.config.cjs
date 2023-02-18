@@ -6,6 +6,7 @@ const config = {
 			fontFamily: {
 				satoshi: ['Satoshi', 'sans-serif'],
 				tanker: ['Tanker', 'sans-serif'],
+				'space-mono' : ['Space Mono', 'monospace']
 			}
 		},
 	},

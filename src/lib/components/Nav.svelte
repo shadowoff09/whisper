@@ -6,7 +6,7 @@
 
 <div class="navbar bg-base-100 font-satoshi">
   <div class="flex-1">
-    <a href="/" class="btn btn-ghost normal-case text-xl ">Whisper</a>
+    <a href="/" class="btn btn-ghost normal-case text-xl font-space-mono tracking-wider ">WHISPER</a>
   </div>
   {#if !data.user}
     <div class="navbar-end space-x-3">
