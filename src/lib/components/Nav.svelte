@@ -18,7 +18,7 @@
     </div>
   {:else}
     <div class="navbar-end space-x-3">
-      <h1 class="font-satoshi font-bold text-lg select-none hidden sm:block">{data.user.username}</h1>
+      <h1 class="font-satoshi font-bold text-lg select-none hidden sm:block">Hi there {data.user.username}!</h1>
       <div class="dropdown dropdown-end">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
           <!-- svelte-ignore a11y-label-has-associated-control -->
