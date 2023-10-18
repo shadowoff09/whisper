@@ -8,10 +8,10 @@ export const actions = {
 		try {
 			await locals.pb.collection('users').authWithPassword(formData.email, formData.password); // authenticate the user with the email and password
 		} catch (err) {
-      console.log('Error: ', err);
-			// if there is an error then log it and throw a 500 error
+			
 			return {
-				error: err.message // return the error message
+				success: false,
+				error: err.data.message
 			};
 		}
 

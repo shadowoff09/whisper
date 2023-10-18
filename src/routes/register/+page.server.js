@@ -16,6 +16,7 @@ export const actions = {
 			console.log('Error: ', err);
 			throw error(500, 'Something went wrong with the login'); // throw a 500 error
 		}
-		throw redirect(303, '/login'); // redirect to the login page
+		await locals.pb.collection('users').authWithPassword(formData.email, formData.password);
+		throw redirect(303, '/'); // redirect to the login page
 	}
 };
