@@ -12,38 +12,44 @@
 </svelte:head>
 
 <div class="my-24 lg:my-40 grid place-items-center">
-  <h1 class="text-2xl font-satoshi font-bold text-white">Welcome to <span class="text-purple-500">Whisper</span></h1>
-	<h3 class="mb-10 mt-2 text-xl font-satoshi font-bold text-white">Login with your account</h3>
+  <h1 class="text-2xl font-space-mono font-bold text-white">
+		Welcome to <span
+			class="font-space-mono font-black bg-gradient-to-r bg-clip-text text-transparent from-blue-500 via-purple-500 to-indigo-500
+							animate-text select-none">WHISPER</span
+		>
+	</h1>
+	<h3 class="mb-10 mt-2 text-xl font-space-mono font-bold text-white">Login with your account</h3>
 	<form action="?/login" method="POST" use:enhance class="grid">
-		<div class="mb-6 space-y-1 w-56 sm:w-64 md:w-72 lg:w-96">
-			<label for="email" class="text-sm font-medium text-white">Your email</label>
+		<div class="mb-2 space-y-1 w-56 sm:w-64 md:w-72 lg:w-96">
+			<label for="email" class="text-sm font-medium text-white font-space-mono">Your email</label>
 			<input
 				name="email"
 				type="email"
 				id="email"
-				class="bg-gray-700 border border-gray-600 text-white dark:text-white sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+				class="bg-gray-700 border font-space-mono border-gray-600 text-white dark:text-white sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
 				placeholder="name@whisper.com"
 				required
 				autocomplete="email"
 			/>
 		</div>
 		<div class="mb-6 space-y-1 w-56 sm:w-64 md:w-72 lg:w-96">
-			<label for="password" class="text-sm font-medium text-white">Your password</label>
+			<label for="password" class="text-sm font-medium text-white font-space-mono">Your password</label>
 			<input
 				name="password"
 				type="password"
 				id="password"
-				class="bg-gray-700 border border-gray-600 text-white dark:text-white sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+				class="bg-gray-700 font-space-mono border border-gray-600 text-white dark:text-white sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
 				required
 				autocomplete="current-password"
-				placeholder="***************************"
+				placeholder="***************"
 			>
 		</div>
 		<button
 			type="submit"
-			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-space-mono rounded-lg text-sm px-5 py-2.5 text-center"
 			>Login</button
 		>
+		<p class="mt-2 text-white text-sm font-space-mono">Don't have an account? <a href="/register" class="text-blue-500">Sign up</a></p>
 		
     {#if form?.success === false}
 			<div class="mt-4 flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3 gap-2 rounded-md" role="alert">

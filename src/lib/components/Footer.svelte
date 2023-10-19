@@ -1,6 +1,6 @@
 <div class="fixed bottom-0 w-full">
   <footer class="footer items-center p-4 bg-neutral text-neutral-content">
-    <div class="items-center grid-flow-col">
+    <div class="items-center grid-flow-col font-space-mono">
       Made with ❤️ by <a href="https://github.com/shadowoff09" target="_blank" class="text-neutral-content font-bold" rel="noreferrer">shadowoff09</a>
     </div> 
     <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

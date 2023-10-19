@@ -57,7 +57,7 @@
 	</div>
 
 	<form on:submit|preventDefault={submitSearch}>
-		<div class="grid place-items-center mt-32 space-y-5">
+		<div class="grid place-items-center mt-28 space-y-5">
 			<div class="form-control lg:w-3/5 md:w-3/4 w-full grid place-items-center">
 				<input
 					class="bg-gray-700 border border-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -90,3 +90,4 @@
 		</div>
 	</form>
 </div>
+

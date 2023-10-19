@@ -1,5 +1,6 @@
 // @ts-nocheck
 export const load = ({ locals }) => {
+	
 	if (locals.user) {
 		// if we have a user then we return the user
 		return {
