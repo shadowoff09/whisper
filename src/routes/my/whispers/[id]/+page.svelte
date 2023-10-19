@@ -6,6 +6,7 @@
 	const date = new Date(data.whisper?.created);
 	const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 	const readableDate = date.toLocaleDateString('en-US', options);
+	import moment from 'moment';
 
 </script>
 
@@ -14,7 +15,7 @@
 </svelte:head>
 
 <div class="flex justify-center items-center">
-		<div class="card mt-56 bg-base-200 shadow-lg w-3/4 md:w-2/4 lg:w-1/4">
+		<div class="card mt-20 bg-base-200 shadow-lg w-3/4 md:w-2/4 lg:w-1/4">
 			<div class="card-body">
 				<div class="card-actions justify-end">
 					
@@ -23,7 +24,7 @@
 
 				<p class="text-xl">{data.whisper.whisper}</p>
 
-				<h1><span class="font-bold">Sent on: </span>{readableDate}</h1>
+				<h1><span class="font-bold">Sent: </span>{moment(data.whisper.created).fromNow()}</h1>
 				{#if data.whisper.replied}
 					<div class="divider"></div>
 					<h1 class="font-bold">Reply</h1>

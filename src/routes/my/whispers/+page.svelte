@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	import { enhance } from '$app/forms';
+	import moment from 'moment';
 
 	export let data;
 
@@ -28,7 +29,7 @@
 		</div>
 	</div>
 {:else}
-	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-10 gap-y-8 mx-10 my-2">
+	<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-10 gap-y-8 mx-10 my-2">
 	{#each data.records as whisper}
 		<div class="card max-w-sm bg-base-200 shadow-lg border {whisper.replied ? 'border-red-500' : 'border-green-600'}">
 			<div class="card-body">
@@ -52,9 +53,10 @@
 						</button>
 					</form>
 				</div>
-				<h1 class="absolute mt-1 mr-37 font-bold">Whisper #{getCount()} {whisper.reply ? '(Replied)' : ''}</h1>
+				<h1 class="absolute mt-1 mr-37 font-bold font-space-mono">Whisper #{getCount()} {whisper.reply ? '(Replied)' : ''}</h1>
 				<p class="break-words">{whisper.whisper}</p>
-				<a href="/my/whispers/{whisper.id}" class="btn -mb-2 mt-2">View</a>
+				<a href="/my/whispers/{whisper.id}" class="btn mt-2">View</a>
+				<p class="-mb-4 font-space-mono text-sm">{moment(whisper.created).fromNow()}</p>
 			</div>
 		</div>
 		{increment()}

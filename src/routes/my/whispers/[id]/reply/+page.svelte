@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div class="flex justify-center items-center">
-		<div class="card mt-56 bg-base-200 shadow-lg w-3/4 md:w-2/4 lg:w-1/4">
+		<div class="card mt-20 bg-base-200 shadow-lg w-3/4 md:w-2/4 lg:w-1/4">
 			<div class="card-body">
 				<div class="card-actions justify-end">
 					

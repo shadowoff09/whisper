@@ -15,6 +15,7 @@ export const actions = {
 			};
 		}
 
-		throw redirect(303, '/'); // redirect to the home page
+		throw redirect(303, '/?success=true'); // redirect to the home page
+
 	}
 };

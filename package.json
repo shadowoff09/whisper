@@ -17,6 +17,7 @@
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^1.0.3",
 		"@sveltejs/kit": "^1.15.2",
+		"@zerodevx/svelte-toast": "^0.9.5",
 		"autoprefixer": "^10.4.7",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -39,6 +40,7 @@
 		"daisyui": "^2.47.0",
 		"dotenv": "^16.0.3",
 		"flowbite": "^1.6.2",
+		"moment": "^2.29.4",
 		"pocketbase": "^0.10.0"
 	}
 }
