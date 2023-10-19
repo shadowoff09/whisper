@@ -1,121 +1,107 @@
 [
-  {
-    "id": "_pb_users_auth_",
-    "name": "users",
-    "type": "auth",
-    "system": false,
-    "schema": [
-      {
-        "id": "users_name",
-        "name": "name",
-        "type": "text",
+    {
+        "id": "espb74ufow2mwm7",
+        "name": "whispers",
+        "type": "base",
         "system": false,
-        "required": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
-      },
-      {
-        "id": "users_avatar",
-        "name": "avatar",
-        "type": "file",
-        "system": false,
-        "required": false,
-        "unique": false,
-        "options": {
-          "maxSelect": 1,
-          "maxSize": 5242880,
-          "mimeTypes": [
-            "image/jpg",
-            "image/jpeg",
-            "image/png",
-            "image/svg+xml",
-            "image/gif",
-            "image/webp"
-          ],
-          "thumbs": null
-        }
-      }
-    ],
-    "listRule": "",
-    "viewRule": "@request.auth.id != \"\"",
-    "createRule": "",
-    "updateRule": "@request.auth.id != \"\"",
-    "deleteRule": "@request.auth.id != \"\"",
-    "options": {
-      "allowEmailAuth": true,
-      "allowOAuth2Auth": true,
-      "allowUsernameAuth": true,
-      "exceptEmailDomains": null,
-      "manageRule": null,
-      "minPasswordLength": 8,
-      "onlyEmailDomains": null,
-      "requireEmail": false
-    }
-  },
-  {
-    "id": "espb74ufow2mwm7",
-    "name": "whispers",
-    "type": "base",
-    "system": false,
-    "schema": [
-      {
-        "id": "vj93owrm",
-        "name": "username",
-        "type": "text",
-        "system": false,
-        "required": true,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
-      },
-      {
-        "id": "guxn8yin",
-        "name": "whisper",
-        "type": "text",
-        "system": false,
-        "required": true,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
-      },
-      {
-        "id": "g52spavm",
-        "name": "replied",
-        "type": "bool",
-        "system": false,
-        "required": false,
-        "unique": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "vj93owrm",
+                "name": "username",
+                "type": "text",
+                "required": true,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            },
+            {
+                "system": false,
+                "id": "guxn8yin",
+                "name": "whisper",
+                "type": "text",
+                "required": true,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            },
+            {
+                "system": false,
+                "id": "g52spavm",
+                "name": "replied",
+                "type": "bool",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {}
+            },
+            {
+                "system": false,
+                "id": "o7grfshn",
+                "name": "reply",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            }
+        ],
+        "indexes": [
+            "CREATE INDEX `_espb74ufow2mwm7_created_idx` ON `whispers` (`created`)"
+        ],
+        "listRule": "",
+        "viewRule": null,
+        "createRule": "",
+        "updateRule": "",
+        "deleteRule": "",
         "options": {}
-      },
-      {
-        "id": "o7grfshn",
-        "name": "reply",
-        "type": "text",
+    },
+    {
+        "id": "_pb_users_auth_",
+        "name": "users",
+        "type": "auth",
         "system": false,
-        "required": false,
-        "unique": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "2guz9lmh",
+                "name": "isAdmin",
+                "type": "bool",
+                "required": false,
+                "presentable": true,
+                "unique": false,
+                "options": {}
+            }
+        ],
+        "indexes": [
+            "CREATE INDEX `__pb_users_auth__created_idx` ON `users` (`created`)"
+        ],
+        "listRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
+        "viewRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
+        "createRule": "",
+        "updateRule": "@request.auth.id != \"\"",
+        "deleteRule": "@request.auth.id != \"\"",
         "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
+            "allowEmailAuth": true,
+            "allowOAuth2Auth": true,
+            "allowUsernameAuth": true,
+            "exceptEmailDomains": null,
+            "manageRule": null,
+            "minPasswordLength": 8,
+            "onlyEmailDomains": null,
+            "requireEmail": false
         }
-      }
-    ],
-    "listRule": "",
-    "viewRule": null,
-    "createRule": "",
-    "updateRule": "",
-    "deleteRule": "",
-    "options": {}
-  }
+    }
 ]
