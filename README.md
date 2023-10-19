@@ -10,6 +10,10 @@ Run the following console command in the root directory:
 
   ```bash
 npm install
+
+#or
+
+npm i
 ```
 
 </p>
