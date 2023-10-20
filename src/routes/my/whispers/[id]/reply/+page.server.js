@@ -7,7 +7,9 @@ export async function load({ params, locals }) {
 		throw redirect(303, '/login');
 	} else {
 		try {
-			const whisper = await locals.pb.collection('whispers').getFirstListItem(`id = "${params.id}"`); // check if exists
+			const whisper = await locals.pb
+				.collection('whispers')
+				.getFirstListItem(`id = "${params.id}"`); // check if exists
 			return {
 				whisper: serializeNonPOJOs(whisper)
 			};
@@ -24,12 +26,13 @@ export const actions = {
 		const formData = Object.fromEntries(await request.formData()); // get the form data from the request
 
 		try {
-			const data = { // create the data object to update the whisper with the reply
+			const data = {
+				// create the data object to update the whisper with the reply
 				whisper: formData.whisper,
 				username: locals.user.username,
-				replied : true,
-				reply: formData.reply,
-			}
+				replied: true,
+				reply: formData.reply
+			};
 			await locals.pb.collection('whispers').update(formData.id, data); // update the whisper
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
@@ -37,6 +40,26 @@ export const actions = {
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 	},
+
+	deleteReply: async ({ request, locals }) => {
+		// create a new action called register
+		const formData = Object.fromEntries(await request.formData()); // get the form data from the request
+
+		try {
+			const data = {
+				// create the data object to update the whisper with the reply
+				whisper: formData.whisper,
+				username: locals.user.username,
+				replied: false
+			};
+			await locals.pb.collection('whispers').update(formData.id, data); // update the whisper
+		} catch (err) {
+			// if there is an error then log it and throw a 500 error
+			console.log('Error: ', err);
+			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
+		}
+	},
+
 	deleteWhisper: async ({ request, locals }) => {
 		// create a new action called register
 		const formData = Object.fromEntries(await request.formData()); // get the form data from the request

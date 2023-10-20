@@ -1,14 +1,12 @@
 // @ts-nocheck
-
 import { redirect, error } from '@sveltejs/kit';
-
 
 export async function load({ locals }) {
 	if (!locals.user) {
 		throw redirect(303, '/login');
 	} else {
 		const records = await locals.pb.collection('whispers').getFullList(200, {
-			filter: `username = '${locals.user.username}'`
+			filter: `userId = '${locals.user.id}'`
 		});
 
 		return {
@@ -16,7 +14,6 @@ export async function load({ locals }) {
 		};
 	}
 }
-
 
 export const actions = {
 	deleteWhisper: async ({ request, locals }) => {

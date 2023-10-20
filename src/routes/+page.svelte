@@ -3,20 +3,18 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { toast, SvelteToast } from '@zerodevx/svelte-toast';
-	import { redirect } from '@sveltejs/kit';
 	let query = '';
 
 	function submitSearch() {
 		if (query) {
 			goto(`/${query}/whisper`);
-			console.log(`/${query}/whisper`);
 		}
 	}
 
 	let isShowed = false; // Define isShowed outside the conditional block
 
 	if ($page.url.searchParams.get('success')) {
-  // Check if the toast has already been shown
+		// Check if the toast has already been shown
 		if (!isShowed) {
 			// Push the toast to the page
 			toast.push('Logged in Successfully', {
@@ -28,11 +26,11 @@
 				theme: {
 					'--toastColor': 'mintcream',
 					'--toastBackground': 'rgba(72,187,120,0.9)',
-					'--toastBarBackground': '#2F855A',
-				},
+					'--toastBarBackground': '#2F855A'
+				}
 			});
 		}
-}
+	}
 </script>
 
 <svelte:head>
@@ -60,7 +58,7 @@
 		<div class="grid place-items-center mt-28 space-y-5">
 			<div class="form-control lg:w-3/5 md:w-3/4 w-full grid place-items-center">
 				<input
-					class="bg-gray-700 border border-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+					class="bg-gray-700 border border-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 md:w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 					bind:value={query}
 					placeholder="Search for a user"
 					name="query"
@@ -90,4 +88,3 @@
 		</div>
 	</form>
 </div>
-

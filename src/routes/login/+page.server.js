@@ -8,7 +8,6 @@ export const actions = {
 		try {
 			await locals.pb.collection('users').authWithPassword(formData.email, formData.password); // authenticate the user with the email and password
 		} catch (err) {
-			
 			return {
 				success: false,
 				error: err.data.message
@@ -16,6 +15,5 @@ export const actions = {
 		}
 
 		throw redirect(303, '/?success=true'); // redirect to the home page
-
 	}
 };

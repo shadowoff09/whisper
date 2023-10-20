@@ -1,38 +1,33 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
+	import { Nav, Footer } from '$lib/components';
+	import NProgress from 'nprogress';
+	import { navigating } from '$app/stores';
+  import 'nprogress/nprogress.css';
+  import '../app.postcss';
 
-import "../app.postcss";
-import { Nav, Footer } from '$lib/components';
-import NProgress from 'nprogress'
-import { navigating } from '$app/stores'
+	export let data;
 
-export let data;
+	NProgress.configure({
+		minimum: 0.16,
+		trickle: false,
+		showSpinner: false
+	});
 
-// NProgress css
-import 'nprogress/nprogress.css'
-
-NProgress.configure({
-      // Full list: https://github.com/rstacruz/nprogress#configuration
-      minimum: 0.16,
-      trickle: false,
-      showSpinner: false
-  })
-
-$: {
-  if ($navigating) {
-    NProgress.start();
-  }
-  if (!$navigating) {
-    NProgress.done();
-  }
-}
+	$: {
+		if ($navigating) {
+			NProgress.start();
+		}
+		if (!$navigating) {
+			NProgress.done();
+		}
+	}
 </script>
 
+<Nav {data} />
 
-<Nav {data}/>
-
-<slot/>
+<slot />
 
 <div class="">
-  <Footer />
+	<Footer />
 </div>

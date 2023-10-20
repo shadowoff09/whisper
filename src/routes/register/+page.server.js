@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import { redirect } from '@sveltejs/kit'; // import the redirect function from @sveltejs/kit
 
 export const actions = {
