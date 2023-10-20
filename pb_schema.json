@@ -1,5 +1,41 @@
 [
     {
+        "id": "_pb_users_auth_",
+        "name": "users",
+        "type": "auth",
+        "system": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "2guz9lmh",
+                "name": "isAdmin",
+                "type": "bool",
+                "required": false,
+                "presentable": true,
+                "unique": false,
+                "options": {}
+            }
+        ],
+        "indexes": [
+            "CREATE INDEX `__pb_users_auth__created_idx` ON `users` (`created`)"
+        ],
+        "listRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
+        "viewRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
+        "createRule": "",
+        "updateRule": "@request.auth.id != \"\"",
+        "deleteRule": "@request.auth.id != \"\"",
+        "options": {
+            "allowEmailAuth": true,
+            "allowOAuth2Auth": true,
+            "allowUsernameAuth": true,
+            "exceptEmailDomains": null,
+            "manageRule": null,
+            "minPasswordLength": 8,
+            "onlyEmailDomains": null,
+            "requireEmail": false
+        }
+    },
+    {
         "id": "espb74ufow2mwm7",
         "name": "whispers",
         "type": "base",
@@ -8,7 +44,7 @@
             {
                 "system": false,
                 "id": "vj93owrm",
-                "name": "username",
+                "name": "userId",
                 "type": "text",
                 "required": true,
                 "presentable": false,
@@ -67,41 +103,5 @@
         "updateRule": "",
         "deleteRule": "",
         "options": {}
-    },
-    {
-        "id": "_pb_users_auth_",
-        "name": "users",
-        "type": "auth",
-        "system": false,
-        "schema": [
-            {
-                "system": false,
-                "id": "2guz9lmh",
-                "name": "isAdmin",
-                "type": "bool",
-                "required": false,
-                "presentable": true,
-                "unique": false,
-                "options": {}
-            }
-        ],
-        "indexes": [
-            "CREATE INDEX `__pb_users_auth__created_idx` ON `users` (`created`)"
-        ],
-        "listRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
-        "viewRule": "@request.auth.id != \"\" && @request.auth.isAdmin = true",
-        "createRule": "",
-        "updateRule": "@request.auth.id != \"\"",
-        "deleteRule": "@request.auth.id != \"\"",
-        "options": {
-            "allowEmailAuth": true,
-            "allowOAuth2Auth": true,
-            "allowUsernameAuth": true,
-            "exceptEmailDomains": null,
-            "manageRule": null,
-            "minPasswordLength": 8,
-            "onlyEmailDomains": null,
-            "requireEmail": false
-        }
     }
 ]

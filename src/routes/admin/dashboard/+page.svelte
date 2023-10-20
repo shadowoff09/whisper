@@ -97,16 +97,19 @@
 					{/if}
 
 					<h1 class="font-space-mono text-sm">Number of Users: {data.totalUsers}</h1>
-					<div class="flex">
+					<div class="flex-1">
+						
 						<h1 class="font-space-mono text-lg mb-2 mt-10">Whispers</h1>
+						{#if data.totalWhispers > 0}
 						<form action="?/deleteAllWhispers" method="POST" use:enhance>
 							<button
-								class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+								class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-2"
 								type="submit"
 							>
 								Delete all
 							</button>
 						</form>
+						{/if}
 					</div>
 					{#if screenSize < screenSizeToSeeTables}
 						<div
