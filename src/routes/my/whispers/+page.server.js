@@ -5,12 +5,21 @@ export async function load({ locals }) {
 	if (!locals.user) {
 		throw redirect(303, '/login');
 	} else {
-		const records = await locals.pb.collection('whispers').getFullList(200, {
-			filter: `userId = '${locals.user.id}'`
+		const records = await locals.pb.collection('whispers').getFullList(200,{
+			filter: `receiverId = '${locals.user.id}'`
 		});
 
+		console.log('records: ', records);
+
+		const notRepliedWhispers = records.filter((record) => !record.replied).length;
+		const repliedWhispers = records.filter((record) => record.replied).length;
+		const totalWhispers = records.length;
+
 		return {
-			records: JSON.parse(JSON.stringify(records))
+			records: JSON.parse(JSON.stringify(records)),
+			notRepliedWhispers,
+			repliedWhispers,
+			totalWhispers
 		};
 	}
 }

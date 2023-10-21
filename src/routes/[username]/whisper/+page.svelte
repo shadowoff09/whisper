@@ -13,7 +13,8 @@
 		Send an whisper to <span class="text-purple-500">{data.user.username}</span>
 	</h1>
 	<form action="?/sendWhisper" method="POST" use:enhance>
-		<input class="hidden" type="text" name="userId" value={data.user.id} />
+		<input class="hidden" type="text" name="receiverId" value={data.user.id} />
+		<input class="hidden" type="text" name="receiverUsername" value={data.user.username} />
 		<div class="mb-6">
 			<textarea
 				name="whisper"

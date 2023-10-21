@@ -3,19 +3,23 @@ import { redirect, error } from '@sveltejs/kit';
 import { serializeNonPOJOs } from '$lib/utils';
 
 export async function load({ params, locals }) {
+	// Check if the user is logged in.
 	if (!locals.user) {
-		throw redirect(303, '/login');
+		return redirect(303, '/login');
 	} else {
+		// Try to get the whisper.
 		try {
 			const whisper = await locals.pb
 				.collection('whispers')
-				.getFirstListItem(`id = "${params.id}"`); // check if exists
+				.getFirstListItem(`id = "${params.id}"`);
+
+			// Return the whisper directly as a plain object.
 			return {
 				whisper: serializeNonPOJOs(whisper)
 			};
 		} catch (err) {
-			console.log(`The whisper with the id ${params.id} was not found!`);
-			throw redirect(303, '/404?error=WhisperNotFound');
+			console.log(err);
+			return redirect(303, '/404?error=InternalServerError');
 		}
 	}
 }

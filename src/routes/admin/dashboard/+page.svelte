@@ -103,7 +103,7 @@
 						{#if data.totalWhispers > 0}
 						<form action="?/deleteAllWhispers" method="POST" use:enhance>
 							<button
-								class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-2"
+								class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-2 font-space-mono"
 								type="submit"
 							>
 								Delete all
@@ -153,13 +153,14 @@
 									<th scope="col" class="px-6 py-4 font-space-mono">reply</th>
 									<th scope="col" class="px-6 py-4 font-space-mono">created</th>
 									<th scope="col" class="px-6 py-4 font-space-mono">Action</th>
+									<th scope="col" class="px-6 py-4 font-space-mono">View</th>
 								</tr>
 							</thead>
 							<tbody>
 								{#each data.whispers as whisper}
 									<tr class="border-b dark:border-neutral-500 font-space-mono">
 										<td class="whitespace-nowrap px-6 py-4">{whisper.id}</td>
-										<td class="whitespace-nowrap px-6 py-4">{whisper.userId}</td>
+										<td class="whitespace-nowrap px-6 py-4">{whisper.receiverUsername}</td>
 										<td class="whitespace-nowrap px-6 py-4">{whisper.whisper}</td>
 										<td class="whitespace-nowrap px-6 py-4"
 											>{whisper.reply ? whisper.reply : 'No reply'}</td
@@ -175,6 +176,15 @@
 													Delete
 												</button>
 											</form>
+										</td>
+										<td class="px-3">
+												<a
+													href="/admin/whisper/{whisper.id}"
+													class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+													type="submit"
+												>
+													View
+										</a>
 										</td>
 									</tr>
 								{/each}

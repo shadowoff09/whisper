@@ -14,7 +14,7 @@ export async function load({ params, locals }) {
 			}
 		};
 	} catch (err) {
-		console.log(`User ${params.username} was not found!`);
+		console.log(`User ${params.username} was not found! ${err}`);
 		throw redirect(303, '/404?error=UserNotFound');
 	}
 }
@@ -32,7 +32,7 @@ export const actions = {
 				error: err.message // return the error message
 			};
 		}
-		console.log(`Whisper sent to  ${params.username} (${formData.userId})!`);
+		console.log(`Whisper sent to  ${params.username} (${formData.receiverId})!`);
 		throw redirect(303, `/${params.username}/whisper-sent`); // redirect to the home page
 	}
 };
