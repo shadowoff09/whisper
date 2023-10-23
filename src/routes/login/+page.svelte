@@ -46,8 +46,9 @@
 		<button
 			type="submit"
 			class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-space-mono rounded-lg text-sm px-5 py-2.5 text-center md:w-72 lg:w-96"
-			>Login</button
 		>
+			Login
+		</button>
 		<p class="mt-2 text-white text-sm font-space-mono">
 			Don't have an account? <a href="/register" class="text-blue-500">Sign up</a>
 		</p>

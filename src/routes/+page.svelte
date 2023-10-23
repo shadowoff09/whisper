@@ -11,18 +11,11 @@
 		}
 	}
 
-	let isShowed = false; // Define isShowed outside the conditional block
 
 	if ($page.url.searchParams.get('success')) {
-		// Check if the toast has already been shown
-		if (!isShowed) {
 			// Push the toast to the page
-			toast.push('Logged in Successfully', {
+			toast.push(`Logged in Successfully.`, {
 				target: 'new',
-				onpop: () => {
-					// Set the `isShowed` variable to `true`
-					const isShowed = true;
-				},
 				theme: {
 					'--toastColor': 'mintcream',
 					'--toastBackground': 'rgba(72,187,120,0.9)',
@@ -30,7 +23,6 @@
 				}
 			});
 		}
-	}
 </script>
 
 <svelte:head>
@@ -88,3 +80,22 @@
 		</div>
 	</form>
 </div>
+
+<style>
+  .wrap {
+    --toastContainerTop: 0.5rem;
+    --toastContainerRight: 0.5rem;
+    --toastContainerBottom: auto;
+    --toastContainerLeft: 0.5rem;
+    --toastWidth: 100%;
+    --toastMinHeight: 2rem;
+    --toastPadding: 0 0.5rem;
+    font-size: 0.875rem;
+  }
+  @media (min-width: 40rem) {
+    .wrap {
+      --toastContainerRight: auto;
+      --toastContainerLeft: calc(50vw - 20rem);
+      --toastWidth: 40rem;
+    }
+  }</style>
