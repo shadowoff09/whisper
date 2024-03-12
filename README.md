@@ -59,3 +59,5 @@ npm run dev
 npm run dev -- --host
 ```
 
+## License
+Licensed under the [MIT license](https://github.com/shadowoff09/whisper/blob/main/LICENSE.md).
