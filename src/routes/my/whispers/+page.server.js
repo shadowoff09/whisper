@@ -9,8 +9,6 @@ export async function load({ locals }) {
 			filter: `receiverId = '${locals.user.id}'`
 		});
 
-		console.log('records: ', records);
-
 		const notRepliedWhispers = records.filter((record) => !record.replied).length;
 		const repliedWhispers = records.filter((record) => record.replied).length;
 		const totalWhispers = records.length;
@@ -35,7 +33,6 @@ export const actions = {
 			await locals.pb.collection('whispers').delete(formData.whisperId);
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 		throw redirect(303, '/my/whispers'); // redirect to the login page

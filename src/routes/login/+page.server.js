@@ -1,6 +1,12 @@
 // @ts-nocheck
 import { redirect } from '@sveltejs/kit'; // import the redirect function from @sveltejs/kit
 
+export async function load({ locals }) {
+	if (locals.user) {
+		throw redirect(303, '/');
+	}
+}
+
 export const actions = {
 	login: async ({ locals, request }) => {
 		const formData = Object.fromEntries(await request.formData()); // get the form data from the request

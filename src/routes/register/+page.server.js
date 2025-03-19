@@ -1,12 +1,16 @@
 // @ts-nocheck
 import { redirect } from '@sveltejs/kit'; // import the redirect function from @sveltejs/kit
 
+export async function load({ locals }) {
+	if (locals.user) {
+		throw redirect(303, '/');
+	}
+}
+
 export const actions = {
 	register: async ({ request, locals }) => {
 		// create a new action called register
 		const formData = Object.fromEntries(await request.formData()); // get the form data from the request
-
-		console.log('formData: ', formData);
 
 		try {
 			// create a new user in the users collection

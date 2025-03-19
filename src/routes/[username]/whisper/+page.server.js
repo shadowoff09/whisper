@@ -14,7 +14,6 @@ export async function load({ params, locals }) {
 			}
 		};
 	} catch (err) {
-		console.log(`User ${params.username} was not found! ${err}`);
 		throw redirect(303, '/404?error=UserNotFound');
 	}
 }
@@ -26,13 +25,11 @@ export const actions = {
 		try {
 			await locals.pb.collection('whispers').create(formData); // authenticate the user with the email and password
 		} catch (err) {
-			console.log('Error: ', err);
 			// if there is an error then log it and throw a 500 error
 			return {
 				error: err.message // return the error message
 			};
 		}
-		console.log(`Whisper sent to  ${params.username} (${formData.receiverId})!`);
 		throw redirect(303, `/${params.username}/whisper-sent`); // redirect to the home page
 	}
 };

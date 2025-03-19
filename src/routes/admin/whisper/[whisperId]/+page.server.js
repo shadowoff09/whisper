@@ -2,7 +2,9 @@ import { redirect } from '@sveltejs/kit';
 import { serializeNonPOJOs } from '$lib/utils';
 
 export async function load({ params, locals }) {
-	if (!locals.user || !locals.user.isAdmin) {
+	if (!locals.user) {
+		throw redirect(303, '/login');
+	} else if (!locals.user.isAdmin) {
 		throw redirect(303, '/');
 	} else {
 		try {
@@ -13,7 +15,6 @@ export async function load({ params, locals }) {
 				whisper: serializeNonPOJOs(whisper)
 			};
 		} catch (err) {
-			console.log(`The whisper with the id ${params.id} was not found!`);
 			throw redirect(303, '/404?error=WhisperNotFound');
 		}
 	}

@@ -18,7 +18,6 @@ export async function load({ params, locals }) {
 				whisper: serializeNonPOJOs(whisper)
 			};
 		} catch (err) {
-			console.log(err);
 			return redirect(303, '/404?error=InternalServerError');
 		}
 	}
@@ -35,7 +34,6 @@ export const actions = {
 			await locals.pb.collection('whispers').delete(formData.whisperId);
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 		throw redirect(303, '/my/whispers'); // redirect to the login page
@@ -56,7 +54,6 @@ export const actions = {
 			await locals.pb.collection('whispers').update(formData.id, data); // update the whisper
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 	}

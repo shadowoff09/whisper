@@ -8,8 +8,10 @@ export async function load({ locals }) {
 		return totalItems;
 	}
 
-	if (!locals.user || !locals.user.isAdmin) {
+	if (!locals.user) {
 		throw redirect(303, '/login');
+	} else if (!locals.user.isAdmin) {
+		throw redirect(303, '/');
 	} else {
 		const recordsUsers = await locals.pb.collection('users').getFullList(200);
 		const recordsWhispers = await locals.pb.collection('whispers').getFullList(200);
@@ -46,7 +48,6 @@ export const actions = {
 			await locals.pb.collection('users').delete(formData.userId);
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the user'); // throw a 500 error
 		}
 		throw redirect(303, '/admin/dashboard'); // redirect to the login page
@@ -62,7 +63,6 @@ export const actions = {
 			await locals.pb.collection('whispers').delete(formData.whisperId);
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 		throw redirect(303, '/admin/dashboard'); // redirect to the login page
@@ -81,7 +81,6 @@ export const actions = {
 			});
 		} catch (err) {
 			// if there is an error then log it and throw a 500 error
-			console.log('Error: ', err);
 			throw error(500, 'Something went wrong deleting the whisper'); // throw a 500 error
 		}
 		throw redirect(303, '/admin/dashboard'); // redirect to the login page
