@@ -59,3 +59,7 @@ npm run dev
 npm run dev -- --host
 ```
 
+## License
+Licensed under the [MIT license](https://github.com/shadowoff09/whisper/blob/main/LICENSE.md).
+
+<a href="https://www.producthunt.com/posts/whisper-2?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-whisper&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454864&theme=light" alt="Whisper - Speak&#0032;Freely&#0044;&#0032;Stay&#0032;Anonymous | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
