@@ -8,7 +8,7 @@ export async function load({ locals }) {
 		return totalItems;
 	}
 
-	if (!locals.user) {
+	if (!locals.user || !locals.user.isAdmin) {
 		throw redirect(303, '/login');
 	} else {
 		const recordsUsers = await locals.pb.collection('users').getFullList(200);

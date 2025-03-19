@@ -2,7 +2,7 @@ import { redirect } from '@sveltejs/kit';
 import { serializeNonPOJOs } from '$lib/utils';
 
 export async function load({ params, locals }) {
-	if (!locals.user?.isAdmin) {
+	if (!locals.user || !locals.user.isAdmin) {
 		throw redirect(303, '/');
 	} else {
 		try {
